@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>$SAVAGE Coin – Join The Movement | Solana Meme Coin</title>
+  <meta name="description" content="Savage Coin ($SAVAGE) is a community-driven Solana meme coin built for bold movers. Buy $SAVAGE on Jupiter. Strong liquidity, rewarding holders, and unstoppable momentum." />
+  <meta name="keywords" content="Savage Coin, SAVAGE, Solana meme coin, crypto, Web3, community token, buy SAVAGE, Solana token" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="$SAVAGE Coin – Join The Movement" />
+  <meta property="og:description" content="A community-driven movement built for people who move early, think boldly, and believe in building momentum together." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="$SAVAGE Coin – Join The Movement" />
+  <meta name="twitter:description" content="Savage Coin is more than a token — it's a movement. Join the Savage Army." />
+  <link rel="canonical" href="https://savagecoin.io/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --gold: #D4AF37;
+      --gold-light: #F7D774;
+      --red: #C1121F;
+      --black: #0B0B0F;
+      --dark2: #16161D;
+      --silver: #B8BCC8;
+      --white: #F5F5F5;
+      --glass: rgba(255,255,255,0.035);
+      --glass-border: rgba(212,175,55,0.18);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--black); color: var(--white); font-family: 'Inter', sans-serif; overflow-x: hidden; }
+
+    /* PARTICLES */
+    #particles { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+    .particle { position: absolute; border-radius: 50%; opacity: 0; animation: floatUp linear infinite; }
+    @keyframes floatUp {
+      0%   { transform: translateY(105vh); opacity: 0; }
+      5%   { opacity: 0.8; }
+      90%  { opacity: 0.35; }
+      100% { transform: translateY(-10vh); opacity: 0; }
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 48px;
+      background: rgba(11,11,15,0.88); backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--glass-border);
+      transition: padding .3s, background .3s;
+    }
+    nav.scrolled { padding: 10px 48px; background: rgba(11,11,15,0.97); }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      font-family: 'Orbitron', monospace; font-weight: 900; font-size: 1.2rem;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      letter-spacing: 2px; text-decoration: none;
+    }
+    .nav-logo-img {
+      width: 34px; height: 34px; object-fit: contain; border-radius: 50%;
+      animation: logoPulse 3s ease-in-out infinite;
+      filter: drop-shadow(0 0 6px rgba(212,175,55,0.6));
+    }
+    @keyframes logoPulse {
+      0%,100% { filter: drop-shadow(0 0 6px rgba(212,175,55,0.5)); transform: scale(1); }
+      50%      { filter: drop-shadow(0 0 20px rgba(212,175,55,1)) drop-shadow(0 0 40px rgba(212,175,55,0.4)); transform: scale(1.1); }
+    }
+    .nav-links { display: flex; gap: 26px; list-style: none; }
+    .nav-links a {
+      color: var(--silver); text-decoration: none; font-size: 0.76rem; font-weight: 500;
+      letter-spacing: 1.5px; text-transform: uppercase; transition: color .2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 1px;
+      background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform .3s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+    .nav-cta {
+      background: linear-gradient(135deg, var(--red), var(--gold));
+      color: #000; font-family: 'Orbitron', monospace; font-weight: 700; font-size: 0.7rem;
+      letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none;
+      padding: 10px 20px; border-radius: 6px;
+      box-shadow: 0 0 18px rgba(193,18,31,0.4);
+      transition: box-shadow .3s, transform .2s; white-space: nowrap;
+    }
+    .nav-cta:hover { box-shadow: 0 0 36px rgba(212,175,55,0.8); transform: translateY(-2px) scale(1.04); }
+
+    /* HAMBURGER */
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; z-index: 210; }
+    .hamburger span { width: 24px; height: 2px; background: var(--gold); border-radius: 2px; transition: all .3s; display: block; }
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+    .mobile-menu {
+      display: none; position: fixed; top: 62px; left: 0; right: 0; z-index: 199;
+      background: rgba(11,11,15,0.98); backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--glass-border);
+      flex-direction: column; padding: 20px 24px; gap: 0;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      color: var(--silver); text-decoration: none;
+      font-family: 'Orbitron', monospace; font-size: 0.82rem; letter-spacing: 2px;
+      text-transform: uppercase; padding: 14px 0;
+      border-bottom: 1px solid rgba(212,175,55,0.07);
+      transition: color .2s, padding-left .2s;
+    }
+    .mobile-menu a:hover { color: var(--gold); padding-left: 6px; }
+
+    /* TICKER */
+    .ticker-bar { position: fixed; bottom: 0; left: 0; right: 0; z-index: 100; background: rgba(11,11,15,0.93); border-top: 1px solid var(--glass-border); overflow: hidden; height: 34px; }
+    .ticker-inner { display: flex; align-items: center; height: 100%; animation: ticker 32s linear infinite; white-space: nowrap; }
+    .ticker-item { font-family: 'Orbitron', monospace; font-size: 0.63rem; letter-spacing: 2px; color: var(--gold); padding: 0 40px; }
+    .ticker-sep { color: var(--red); }
+    @keyframes ticker { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+
+    /* SCROLL REVEAL */
+    .reveal { opacity: 0; transform: translateY(44px); transition: opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-left { opacity: 0; transform: translateX(-52px); transition: opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1); }
+    .reveal-right { opacity: 0; transform: translateX(52px); transition: opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1); }
+    .reveal-left.visible, .reveal-right.visible { opacity: 1; transform: translate(0); }
+
+    /* HERO */
+    #hero {
+      position: relative; min-height: 100vh;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; padding: 120px 24px 100px;
+      background:
+        radial-gradient(ellipse 90% 55% at 50% 35%, rgba(212,175,55,0.09) 0%, transparent 65%),
+        radial-gradient(ellipse 50% 30% at 15% 85%, rgba(193,18,31,0.07) 0%, transparent 60%),
+        linear-gradient(180deg, var(--black) 0%, var(--dark2) 100%);
+      z-index: 1; overflow: hidden;
+    }
+    .hero-eyebrow {
+      display: inline-block; font-family: 'Orbitron', monospace; font-size: 0.67rem;
+      letter-spacing: 4px; color: var(--red); text-transform: uppercase;
+      border: 1px solid rgba(193,18,31,0.4); padding: 6px 20px; border-radius: 100px; margin-bottom: 32px;
+      animation: pulseRed 2.8s ease-in-out infinite, fadeSlide .8s ease both;
+    }
+    @keyframes pulseRed { 0%,100%{box-shadow:0 0 0 rgba(193,18,31,0);} 50%{box-shadow:0 0 22px rgba(193,18,31,0.6);} }
+    @keyframes fadeSlide { from{opacity:0;transform:translateY(-22px);} to{opacity:1;transform:translateY(0);} }
+
+    .hero-logo-wrap { position: relative; margin-bottom: 36px; animation: fadeSlide .8s .1s ease both; }
+    .hero-logo {
+      width: 140px; height: 140px; object-fit: contain; border-radius: 50%;
+      position: relative; z-index: 2;
+      animation: heroLogoPulse 3.5s ease-in-out infinite;
+    }
+    @keyframes heroLogoPulse {
+      0%,100% { filter: drop-shadow(0 0 12px rgba(212,175,55,0.55)) drop-shadow(0 0 0px rgba(212,175,55,0)); transform: scale(1); }
+      40%      { filter: drop-shadow(0 0 30px rgba(212,175,55,1)) drop-shadow(0 0 60px rgba(212,175,55,0.4)); transform: scale(1.07); }
+      70%      { filter: drop-shadow(0 0 18px rgba(193,18,31,0.7)) drop-shadow(0 0 4px rgba(193,18,31,0.3)); transform: scale(1.04); }
+    }
+    .hero-logo-ring {
+      position: absolute; inset: -14px; border-radius: 50%;
+      border: 2px solid rgba(212,175,55,0.28); animation: ringRotate 9s linear infinite;
+    }
+    .hero-logo-ring::before {
+      content: ''; position: absolute; top: -5px; left: 50%; transform: translateX(-50%);
+      width: 9px; height: 9px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 14px var(--gold);
+    }
+    .hero-logo-ring2 {
+      position: absolute; inset: -26px; border-radius: 50%;
+      border: 1px solid rgba(193,18,31,0.15); animation: ringRotate 16s linear infinite reverse;
+    }
+    @keyframes ringRotate { from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
+
+    .hero-title {
+      font-family: 'Orbitron', monospace; font-weight: 900;
+      font-size: clamp(2rem, 6.5vw, 5rem); line-height: 1.05; letter-spacing: 1px;
+      background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 45%, var(--red) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      margin-bottom: 14px; animation: fadeSlide .8s .2s ease both;
+    }
+    .hero-sub {
+      font-family: 'Orbitron', monospace; font-size: clamp(0.7rem, 2vw, 1rem);
+      color: var(--silver); letter-spacing: 4px; text-transform: uppercase;
+      margin-bottom: 20px; animation: fadeSlide .8s .3s ease both;
+    }
+    .hero-desc {
+      max-width: 560px; font-size: clamp(0.88rem, 2.5vw, 1rem); line-height: 1.8;
+      color: var(--silver); margin: 0 auto 44px; animation: fadeSlide .8s .4s ease both;
+    }
+    .hero-desc strong { color: var(--gold); }
+    .hero-btns { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; animation: fadeSlide .8s .5s ease both; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: linear-gradient(135deg, var(--red) 0%, var(--gold) 100%);
+      color: #000; font-family: 'Orbitron', monospace; font-weight: 700;
+      font-size: 0.76rem; letter-spacing: 2px; text-transform: uppercase;
+      text-decoration: none; padding: 14px 30px; border-radius: 8px;
+      box-shadow: 0 0 24px rgba(193,18,31,0.5);
+      transition: all .3s; position: relative; overflow: hidden;
+    }
+    .btn-primary::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, transparent 40%, rgba(255,255,255,0.18)); opacity: 0; transition: opacity .3s; }
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 44px rgba(212,175,55,0.7); }
+    .btn-primary:hover::after { opacity: 1; }
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--glass); color: var(--gold);
+      font-family: 'Orbitron', monospace; font-weight: 700; font-size: 0.76rem;
+      letter-spacing: 2px; text-transform: uppercase; text-decoration: none;
+      padding: 14px 30px; border-radius: 8px; border: 1px solid var(--glass-border);
+      transition: all .3s;
+    }
+    .btn-secondary:hover { background: rgba(212,175,55,0.1); border-color: var(--gold); transform: translateY(-3px); box-shadow: 0 4px 24px rgba(212,175,55,0.2); }
+
+    /* SECTION BASE */
+    section { position: relative; z-index: 1; }
+    .section-inner { max-width: 1100px; margin: 0 auto; padding: 90px 24px; }
+    .section-label { font-family: 'Orbitron', monospace; font-size: 0.61rem; letter-spacing: 5px; color: var(--red); text-transform: uppercase; margin-bottom: 10px; }
+    .section-title {
+      font-family: 'Orbitron', monospace; font-weight: 900; font-size: clamp(1.6rem, 4vw, 2.7rem);
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 14px; line-height: 1.1;
+    }
+    .section-divider { width: 54px; height: 3px; background: linear-gradient(90deg, var(--red), var(--gold)); margin-bottom: 48px; border-radius: 2px; }
+
+    /* ABOUT */
+    #about { background: linear-gradient(180deg, var(--dark2) 0%, var(--black) 100%); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+    .about-text p { color: var(--silver); line-height: 1.85; font-size: 0.96rem; margin-bottom: 18px; }
+    .about-text p strong { color: var(--gold); }
+    .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .stat-card {
+      background: var(--glass); border: 1px solid var(--glass-border); border-radius: 14px; padding: 26px 22px;
+      backdrop-filter: blur(10px); transition: border-color .3s, box-shadow .3s, transform .3s; cursor: default;
+    }
+    .stat-card:hover { border-color: var(--gold); box-shadow: 0 0 28px rgba(212,175,55,0.18); transform: translateY(-5px) scale(1.02); }
+    .stat-value { font-family: 'Orbitron', monospace; font-weight: 900; font-size: 1.5rem; color: var(--gold); margin-bottom: 6px; }
+    .stat-name { font-size: 0.76rem; color: var(--silver); letter-spacing: 1px; }
+
+    /* ROADMAP */
+    #roadmap { background: var(--black); }
+    .roadmap-track { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative; }
+    .roadmap-line { position: absolute; top: 19px; left: 9px; right: 9px; height: 2px; background: linear-gradient(90deg, var(--red), var(--gold), var(--gold-light)); z-index: 0; }
+    .phase { position: relative; z-index: 1; padding-right: 20px; }
+    .phase-dot {
+      width: 18px; height: 18px; border-radius: 50%; background: var(--black); border: 3px solid var(--gold);
+      box-shadow: 0 0 12px rgba(212,175,55,0.6); margin-bottom: 22px;
+      transition: background .3s, transform .3s, box-shadow .3s;
+    }
+    .phase:hover .phase-dot { background: var(--gold); transform: scale(1.35); box-shadow: 0 0 28px rgba(212,175,55,0.9); }
+    .phase.active .phase-dot { background: var(--gold); }
+    .phase-num { font-family: 'Orbitron', monospace; font-size: 0.6rem; letter-spacing: 3px; color: var(--red); margin-bottom: 8px; }
+    .phase-title { font-family: 'Orbitron', monospace; font-weight: 700; font-size: 0.92rem; color: var(--gold); margin-bottom: 16px; }
+    .phase-items { list-style: none; }
+    .phase-items li {
+      font-size: 0.8rem; color: var(--silver); padding: 5px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      display: flex; align-items: flex-start; gap: 8px;
+      transition: color .2s, padding-left .2s;
+    }
+    .phase-items li::before { content: '→'; color: var(--gold); flex-shrink: 0; }
+    .phase:hover .phase-items li { color: var(--white); padding-left: 4px; }
+
+    /* TOKENOMICS */
+    #tokenomics { background: linear-gradient(180deg, var(--black) 0%, var(--dark2) 100%); }
+    .toko-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .toko-cards { display: flex; flex-direction: column; gap: 12px; }
+    .toko-card {
+      background: var(--glass); border: 1px solid var(--glass-border); border-radius: 14px; padding: 18px 22px;
+      display: flex; align-items: center; gap: 16px; backdrop-filter: blur(10px);
+      transition: all .35s; cursor: default; position: relative; overflow: hidden;
+    }
+    .toko-card::after {
+      content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+      background: linear-gradient(180deg, var(--red), var(--gold));
+      transform: scaleY(0); transform-origin: bottom; transition: transform .35s;
+    }
+    .toko-card:hover { border-color: var(--gold); transform: translateX(6px); box-shadow: 0 0 30px rgba(212,175,55,0.12); }
+    .toko-card:hover::after { transform: scaleY(1); }
+    .toko-icon { font-size: 1.7rem; flex-shrink: 0; }
+    .toko-info { flex: 1; }
+    .toko-name { font-family: 'Orbitron', monospace; font-size: 0.68rem; letter-spacing: 2px; color: var(--white); margin-bottom: 3px; }
+    .toko-amount-small { font-size: 0.7rem; color: var(--silver); }
+    .toko-desc-small { font-size: 0.7rem; color: var(--silver); margin-top: 3px; line-height: 1.4; }
+    .toko-pct-badge { font-family: 'Orbitron', monospace; font-weight: 900; font-size: 1.25rem; color: var(--gold); flex-shrink: 0; min-width: 48px; text-align: right; }
+
+    /* DONUT */
+    .donut-container { display: flex; flex-direction: column; align-items: center; gap: 24px; }
+    .donut-svg-wrap { position: relative; width: 260px; height: 260px; }
+    .donut-svg { width: 100%; height: 100%; }
+    .donut-center { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; pointer-events: none; }
+    .donut-center-val { font-family: 'Orbitron', monospace; font-weight: 900; font-size: 1.3rem; color: var(--gold); transition: all .3s; }
+    .donut-center-label { font-size: 0.6rem; letter-spacing: 2px; color: var(--silver); text-transform: uppercase; margin-top: 4px; transition: all .3s; }
+    .donut-segment { transition: stroke-width .35s ease, filter .35s ease; cursor: pointer; }
+    .donut-segment:hover { stroke-width: 34; filter: brightness(1.3); }
+    .donut-legend { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 20px; width: 100%; }
+    .legend-item { display: flex; align-items: center; gap: 8px; font-size: 0.73rem; color: var(--silver); }
+    .legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+
+    /* CONTRACT */
+    #contract { background: var(--dark2); }
+    .ca-box {
+      background: var(--glass); border: 1px solid var(--glass-border); border-radius: 18px;
+      padding: 36px 40px; backdrop-filter: blur(12px);
+      box-shadow: 0 0 60px rgba(212,175,55,0.06); transition: box-shadow .4s;
+    }
+    .ca-box:hover { box-shadow: 0 0 80px rgba(212,175,55,0.14); }
+    .ca-label { font-family: 'Orbitron', monospace; font-size: 0.67rem; letter-spacing: 3px; color: var(--red); text-transform: uppercase; margin-bottom: 16px; }
+    .ca-row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+    .ca-address { font-family: 'Orbitron', monospace; font-size: clamp(0.52rem, 1.5vw, 0.8rem); color: var(--gold-light); letter-spacing: 1.5px; flex: 1; word-break: break-all; }
+    .ca-copy {
+      background: linear-gradient(135deg, var(--red), var(--gold)); border: none; color: #000;
+      font-family: 'Orbitron', monospace; font-weight: 700; font-size: 0.67rem; letter-spacing: 1.5px;
+      text-transform: uppercase; padding: 11px 22px; border-radius: 7px; cursor: pointer; flex-shrink: 0;
+      transition: all .25s;
+    }
+    .ca-copy:hover { transform: scale(1.06); box-shadow: 0 0 22px rgba(212,175,55,0.6); }
+    .ca-copy.copied { background: linear-gradient(135deg, #1a7a2a, #2db52d); }
+    .ca-networks { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
+    .ca-badge {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: rgba(212,175,55,0.07); border: 1px solid rgba(212,175,55,0.2);
+      border-radius: 100px; padding: 5px 12px;
+      font-family: 'Orbitron', monospace; font-size: 0.6rem; letter-spacing: 1.5px; color: var(--gold);
+      transition: background .2s;
+    }
+    .ca-badge:hover { background: rgba(212,175,55,0.14); }
+
+    /* LIVE CHART */
+    #chart { background: var(--black); }
+    .chart-wrapper { border: 1px solid var(--glass-border); border-radius: 18px; overflow: hidden; box-shadow: 0 0 60px rgba(212,175,55,0.05); }
+    .chart-header {
+      background: var(--glass); padding: 14px 22px;
+      display: flex; align-items: center; gap: 12px; border-bottom: 1px solid var(--glass-border);
+      flex-wrap: wrap;
+    }
+    .chart-dot { width: 8px; height: 8px; border-radius: 50%; background: #2ecc71; animation: blink 1.5s ease-in-out infinite; flex-shrink: 0; }
+    @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.2;} }
+    .chart-title-text { font-family: 'Orbitron', monospace; font-size: 0.7rem; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; }
+    .chart-badge { margin-left: auto; background: rgba(46,204,113,0.12); border: 1px solid rgba(46,204,113,0.3); border-radius: 100px; padding: 3px 12px; font-family: 'Orbitron', monospace; font-size: 0.58rem; letter-spacing: 1.5px; color: #2ecc71; }
+    #dexframe { width: 100%; height: 580px; border: none; display: block; }
+
+    /* COMMUNITY */
+    #community { background: linear-gradient(180deg, var(--dark2) 0%, var(--black) 100%); }
+    .community-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; max-width: 600px; }
+    .social-card {
+      background: var(--glass); border: 1px solid var(--glass-border); border-radius: 18px; padding: 36px 24px;
+      display: flex; flex-direction: column; align-items: center; gap: 14px;
+      text-decoration: none; backdrop-filter: blur(10px); transition: all .35s; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .social-card::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 50% 0%, rgba(212,175,55,0.05), transparent 70%); opacity: 0; transition: opacity .35s; }
+    .social-card:hover::before { opacity: 1; }
+    .social-card:hover { transform: translateY(-8px); }
+    .social-card.x:hover     { border-color: #fff; box-shadow: 0 10px 44px rgba(255,255,255,0.1); }
+    .social-card.tg:hover    { border-color: #29b6f6; box-shadow: 0 10px 44px rgba(41,182,246,0.18); }
+    .social-icon { width: 60px; height: 60px; border-radius: 16px; display: flex; align-items: center; justify-content: center; transition: transform .3s; }
+    .social-card:hover .social-icon { transform: scale(1.15) rotate(-6deg); }
+    .social-icon svg { width: 30px; height: 30px; }
+    .social-name { font-family: 'Orbitron', monospace; font-weight: 700; font-size: 0.85rem; letter-spacing: 2px; color: var(--white); }
+    .social-handle { font-size: 0.76rem; color: var(--silver); }
+    .social-card.x .social-icon  { background: rgba(255,255,255,0.08); }
+    .social-card.tg .social-icon { background: rgba(41,182,246,0.12); }
+
+    /* FOOTER */
+    footer { background: var(--black); border-top: 1px solid var(--glass-border); padding: 50px 24px 80px; text-align: center; z-index: 1; position: relative; }
+    .footer-logo-wrap { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 18px; }
+    .footer-logo-img { width: 32px; height: 32px; object-fit: contain; border-radius: 50%; filter: drop-shadow(0 0 8px rgba(212,175,55,0.6)); }
+    .footer-logo-text { font-family: 'Orbitron', monospace; font-weight: 900; font-size: 1.4rem; letter-spacing: 3px; background: linear-gradient(90deg, var(--gold), var(--gold-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .footer-disc { font-size: 0.72rem; color: var(--silver); max-width: 560px; margin: 0 auto 18px; line-height: 1.8; }
+    .footer-copy { font-size: 0.67rem; color: rgba(184,188,200,0.32); letter-spacing: 1px; }
+
+    /* CHATBOT */
+    #chatbot-toggle {
+      position: fixed; bottom: 52px; right: 24px; z-index: 500;
+      width: 58px; height: 58px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--red), var(--gold));
+      border: none; cursor: pointer; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 0 24px rgba(212,175,55,0.5); transition: all .3s;
+      animation: botPulse 3.5s ease-in-out infinite;
+    }
+    @keyframes botPulse {
+      0%,100%{box-shadow: 0 0 24px rgba(212,175,55,0.5);}
+      50%{box-shadow: 0 0 52px rgba(212,175,55,0.95), 0 0 80px rgba(193,18,31,0.3);}
+    }
+    #chatbot-toggle:hover { transform: scale(1.13); }
+    #chatbot-toggle svg { width: 26px; height: 26px; fill: #000; }
+
+    #chatbot-window {
+      position: fixed; bottom: 122px; right: 24px; z-index: 500;
+      width: min(360px, calc(100vw - 32px));
+      background: var(--dark2); border: 1px solid var(--glass-border); border-radius: 20px; overflow: hidden;
+      box-shadow: 0 20px 80px rgba(0,0,0,0.85), 0 0 40px rgba(212,175,55,0.1);
+      display: none; flex-direction: column;
+    }
+    #chatbot-window.open { display: flex; }
+    #chatbot-window.animating { animation: chatSlideIn .35s cubic-bezier(.2,.8,.4,1) both; }
+    @keyframes chatSlideIn { from{opacity:0;transform:translateY(16px) scale(0.96);} to{opacity:1;transform:translateY(0) scale(1);} }
+
+    .chat-header { background: linear-gradient(135deg, var(--red), var(--gold)); padding: 15px 18px; display: flex; align-items: center; gap: 12px; }
+    .chat-header-logo { width: 30px; height: 30px; border-radius: 50%; object-fit: contain; flex-shrink: 0; }
+    .chat-header-info { flex: 1; }
+    .chat-header-name { font-family: 'Orbitron', monospace; font-weight: 700; font-size: 0.75rem; letter-spacing: 2px; color: #000; }
+    .chat-header-status { font-size: 0.63rem; color: rgba(0,0,0,0.6); margin-top: 2px; display: flex; align-items: center; gap: 4px; }
+    .chat-status-dot { width: 6px; height: 6px; border-radius: 50%; background: #000; opacity: 0.6; animation: blink 1.5s ease-in-out infinite; }
+    .chat-close { background: none; border: none; cursor: pointer; color: #000; opacity: 0.55; font-size: 1.25rem; padding: 0 4px; transition: opacity .2s; line-height: 1; }
+    .chat-close:hover { opacity: 1; }
+
+    .chat-messages { flex: 1; padding: 18px 14px; overflow-y: auto; max-height: 320px; display: flex; flex-direction: column; gap: 12px; scrollbar-width: thin; scrollbar-color: var(--glass-border) transparent; }
+    .chat-messages::-webkit-scrollbar { width: 3px; }
+    .chat-messages::-webkit-scrollbar-thumb { background: var(--glass-border); border-radius: 4px; }
+
+    .msg { display: flex; flex-direction: column; gap: 3px; animation: msgIn .3s ease; }
+    @keyframes msgIn { from{opacity:0;transform:translateY(8px);} to{opacity:1;transform:translateY(0);} }
+    .msg.bot { align-items: flex-start; }
+    .msg.user { align-items: flex-end; }
+    .msg-bubble { max-width: 88%; padding: 10px 13px; border-radius: 14px; font-size: 0.8rem; line-height: 1.58; }
+    .msg.bot .msg-bubble { background: rgba(212,175,55,0.08); border: 1px solid rgba(212,175,55,0.15); color: var(--white); border-bottom-left-radius: 4px; }
+    .msg.user .msg-bubble { background: linear-gradient(135deg, var(--red), var(--gold)); color: #000; font-weight: 500; border-bottom-right-radius: 4px; }
+    .msg-time { font-size: 0.58rem; color: var(--silver); opacity: 0.4; padding: 0 4px; }
+
+    .chat-quick-btns { padding: 0 14px 10px; display: flex; flex-wrap: wrap; gap: 6px; }
+    .quick-btn {
+      background: rgba(212,175,55,0.07); border: 1px solid rgba(212,175,55,0.2);
+      border-radius: 100px; padding: 5px 11px; color: var(--gold);
+      font-size: 0.68rem; letter-spacing: 0.5px; cursor: pointer; transition: all .2s;
+    }
+    .quick-btn:hover { background: rgba(212,175,55,0.16); transform: scale(1.05); }
+
+    .chat-input-row { display: flex; gap: 8px; padding: 12px 14px; border-top: 1px solid var(--glass-border); }
+    #chat-input {
+      flex: 1; background: rgba(255,255,255,0.04); border: 1px solid var(--glass-border); border-radius: 10px;
+      padding: 9px 13px; color: var(--white); font-family: 'Inter', sans-serif; font-size: 0.8rem; outline: none; transition: border-color .2s;
+    }
+    #chat-input::placeholder { color: var(--silver); opacity: 0.45; }
+    #chat-input:focus { border-color: var(--gold); }
+    #chat-send { background: linear-gradient(135deg, var(--red), var(--gold)); border: none; border-radius: 10px; padding: 9px 14px; cursor: pointer; transition: all .2s; }
+    #chat-send:hover { transform: scale(1.1); box-shadow: 0 0 18px rgba(212,175,55,0.55); }
+    #chat-send svg { width: 15px; height: 15px; fill: #000; display: block; }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      nav { padding: 13px 18px; }
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .about-grid, .toko-layout { grid-template-columns: 1fr; }
+      .donut-container { order: -1; }
+      .roadmap-track { grid-template-columns: 1fr 1fr; }
+      .roadmap-line { display: none; }
+      .phase { margin-bottom: 30px; padding-right: 0; }
+      #dexframe { height: 420px; }
+      .community-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 560px) {
+      .hero-logo { width: 108px; height: 108px; }
+      .about-stats { grid-template-columns: 1fr 1fr; }
+      .roadmap-track { grid-template-columns: 1fr; }
+      .ca-box { padding: 22px 18px; }
+      .section-inner { padding: 66px 18px; }
+      .donut-svg-wrap { width: 210px; height: 210px; }
+      #dexframe { height: 350px; }
+      .community-grid { grid-template-columns: 1fr; max-width: 100%; }
+      #chatbot-window { bottom: 100px; right: 12px; }
+      #chatbot-toggle { bottom: 44px; right: 14px; width: 52px; height: 52px; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="particles"></div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">
+    <img src="savage.png" alt="Savage Coin Logo" class="nav-logo-img" onerror="this.style.display='none'" />
+    $SAVAGE
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#tokenomics">Tokenomics</a></li>
+    <li><a href="#contract">Contract</a></li>
+    <li><a href="#chart">Chart</a></li>
+    <li><a href="#community">Community</a></li>
+  </ul>
+  <a href="https://jup.ag/tokens/TwZPPLomymGXXR2z9hERFxA6BfPH16jVyZKQ4DQmoon" target="_blank" rel="noopener" class="nav-cta">Buy $SAVAGE</a>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#about"      onclick="closeMenu()">About</a>
+  <a href="#roadmap"    onclick="closeMenu()">Roadmap</a>
+  <a href="#tokenomics" onclick="closeMenu()">Tokenomics</a>
+  <a href="#contract"   onclick="closeMenu()">Contract</a>
+  <a href="#chart"      onclick="closeMenu()">Live Chart</a>
+  <a href="#community"  onclick="closeMenu()">Community</a>
+  <a href="https://jup.ag/tokens/TwZPPLomymGXXR2z9hERFxA6BfPH16jVyZKQ4DQmoon" target="_blank" rel="noopener" style="color:var(--gold);" onclick="closeMenu()">🚀 Buy $SAVAGE</a>
+</div>
+
+<!-- HERO -->
+<section id="hero" aria-label="Hero">
+  <div class="hero-eyebrow">🔴 Live on Solana</div>
+  <div class="hero-logo-wrap">
+    <div class="hero-logo-ring"></div>
+    <div class="hero-logo-ring2"></div>
+    <img src="savage.png" alt="Savage Coin" class="hero-logo"
+      onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ccircle cx=%2250%22 cy=%2250%22 r=%2248%22 fill=%22%23D4AF37%22/%3E%3Ctext x=%2250%22 y=%2268%22 text-anchor=%22middle%22 font-family=%22Orbitron%2Csans-serif%22 font-size=%2248%22 font-weight=%22900%22 fill=%22%230B0B0F%22%3ES%3C/text%3E%3C/svg%3E'" />
+  </div>
+  <h1 class="hero-title">JOIN THE SAVAGE<br>REVOLUTION</h1>
+  <p class="hero-sub">$SAVAGE · Solana · Community Movement</p>
+  <p class="hero-desc">Savage Coin is more than a token — it's a <strong>community-driven movement</strong> built for people who move early, think boldly, and believe in building momentum together.</p>
+  <div class="hero-btns">
+    <a href="https://jup.ag/tokens/TwZPPLomymGXXR2z9hERFxA6BfPH16jVyZKQ4DQmoon" target="_blank" rel="noopener" class="btn-primary">🚀 Buy $SAVAGE</a>
+    <a href="https://t.me/savagecoinn" target="_blank" rel="noopener" class="btn-secondary">✈️ Join Telegram</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" aria-label="About Savage Coin">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-text reveal-left">
+        <div class="section-label">About</div>
+        <h2 class="section-title">Built For The Bold</h2>
+        <div class="section-divider"></div>
+        <p>In a space full of noise, <strong>Savage Coin stands for strength, loyalty, and growth</strong> powered by its holders. It represents the mindset of turning small beginnings into something unstoppable through unity and consistent support.</p>
+        <p>The vision is simple: grow a <strong>strong community</strong>, create real hype, reward believers, and turn Savage Coin into a recognized force in the meme coin space.</p>
+        <p>This isn't just about charts — it's about <strong>culture, energy, and people rallying behind one identity.</strong> Savage Coin is for those who refuse to play small.</p>
+      </div>
+      <div class="about-stats">
+        <div class="stat-card reveal" style="transition-delay:.05s"><div class="stat-value">1B</div><div class="stat-name">Total Supply</div></div>
+        <div class="stat-card reveal" style="transition-delay:.10s"><div class="stat-value">50%</div><div class="stat-name">Liquidity Locked</div></div>
+        <div class="stat-card reveal" style="transition-delay:.15s"><div class="stat-value">0%</div><div class="stat-name">Buy / Sell Tax</div></div>
+        <div class="stat-card reveal" style="transition-delay:.20s"><div class="stat-value">SOL</div><div class="stat-name">Solana Network</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section id="roadmap" aria-label="Roadmap">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">The Plan</div>
+      <h2 class="section-title">Roadmap</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="roadmap-track">
+      <div class="roadmap-line"></div>
+      <div class="phase active reveal" style="transition-delay:.04s">
+        <div class="phase-dot"></div>
+        <div class="phase-num">Phase 01</div>
+        <div class="phase-title">Launch &amp; Genesis</div>
+        <ul class="phase-items">
+          <li>Token deployment on Solana</li>
+          <li>Liquidity pool launch</li>
+          <li>DexScreener listing</li>
+          <li>Social channels activated</li>
+          <li>Community building begins</li>
+        </ul>
+      </div>
+      <div class="phase reveal" style="transition-delay:.1s">
+        <div class="phase-dot"></div>
+        <div class="phase-num">Phase 02</div>
+        <div class="phase-title">Momentum</div>
+        <ul class="phase-items">
+          <li>CoinGecko &amp; CMC listing</li>
+          <li>Influencer partnerships</li>
+          <li>Community airdrops</li>
+          <li>Holder milestones</li>
+          <li>Trending campaigns</li>
+        </ul>
+      </div>
+      <div class="phase reveal" style="transition-delay:.16s">
+        <div class="phase-dot"></div>
+        <div class="phase-num">Phase 03</div>
+        <div class="phase-title">Expansion</div>
+        <ul class="phase-items">
+          <li>Major CEX listings</li>
+          <li>Merch &amp; brand drops</li>
+          <li>Savage DAO governance</li>
+          <li>NFT collection launch</li>
+          <li>Cross-chain bridge</li>
+        </ul>
+      </div>
+      <div class="phase reveal" style="transition-delay:.22s">
+        <div class="phase-dot"></div>
+        <div class="phase-num">Phase 04</div>
+        <div class="phase-title">Dominance</div>
+        <ul class="phase-items">
+          <li>Ecosystem utilities</li>
+          <li>DeFi integrations</li>
+          <li>Global marketing push</li>
+          <li>Tier-1 exchange listing</li>
+          <li>Savage ecosystem v2</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOKENOMICS -->
+<section id="tokenomics" aria-label="Tokenomics">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">Distribution</div>
+      <h2 class="section-title">Tokenomics</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="toko-layout">
+      <div class="toko-cards">
+        <div class="toko-card reveal" style="transition-delay:.04s">
+          <div class="toko-icon">🔒</div>
+          <div class="toko-info"><div class="toko-name">Liquidity Pool</div><div class="toko-amount-small">500,000,000 $SAVAGE</div><div class="toko-desc-small">Price stability &amp; smooth trading.</div></div>
+          <div class="toko-pct-badge">50%</div>
+        </div>
+        <div class="toko-card reveal" style="transition-delay:.09s">
+          <div class="toko-icon">🌍</div>
+          <div class="toko-info"><div class="toko-name">Community Rewards</div><div class="toko-amount-small">200,000,000 $SAVAGE</div><div class="toko-desc-small">Giveaways, airdrops &amp; contests.</div></div>
+          <div class="toko-pct-badge">20%</div>
+        </div>
+        <div class="toko-card reveal" style="transition-delay:.14s">
+          <div class="toko-icon">📈</div>
+          <div class="toko-info"><div class="toko-name">Marketing</div><div class="toko-amount-small">150,000,000 $SAVAGE</div><div class="toko-desc-small">Partnerships, listings &amp; visibility.</div></div>
+          <div class="toko-pct-badge">15%</div>
+        </div>
+        <div class="toko-card reveal" style="transition-delay:.19s">
+          <div class="toko-icon">🛠️</div>
+          <div class="toko-info"><div class="toko-name">Development</div><div class="toko-amount-small">100,000,000 $SAVAGE</div><div class="toko-desc-small">Ecosystem growth &amp; upgrades.</div></div>
+          <div class="toko-pct-badge">10%</div>
+        </div>
+        <div class="toko-card reveal" style="transition-delay:.24s">
+          <div class="toko-icon">👑</div>
+          <div class="toko-info"><div class="toko-name">Team (Vested)</div><div class="toko-amount-small">50,000,000 $SAVAGE</div><div class="toko-desc-small">Core team, locked over time.</div></div>
+          <div class="toko-pct-badge">5%</div>
+        </div>
+      </div>
+      <div class="donut-container reveal-right">
+        <div class="donut-svg-wrap">
+          <svg class="donut-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" id="donut-chart" role="img" aria-label="Tokenomics pie chart">
+            <circle class="donut-segment" id="seg-lp"   cx="100" cy="100" r="70" fill="none" stroke="#D4AF37" stroke-width="28" stroke-dasharray="0 439.82" stroke-dashoffset="0"   transform="rotate(-90 100 100)" data-pct="50" data-label="Liquidity Pool"/>
+            <circle class="donut-segment" id="seg-com"  cx="100" cy="100" r="70" fill="none" stroke="#F7D774" stroke-width="28" stroke-dasharray="0 439.82" stroke-dashoffset="0"   transform="rotate(-90 100 100)" data-pct="20" data-label="Community"/>
+            <circle class="donut-segment" id="seg-mkt"  cx="100" cy="100" r="70" fill="none" stroke="#C1121F" stroke-width="28" stroke-dasharray="0 439.82" stroke-dashoffset="0"   transform="rotate(-90 100 100)" data-pct="15" data-label="Marketing"/>
+            <circle class="donut-segment" id="seg-dev"  cx="100" cy="100" r="70" fill="none" stroke="#B8BCC8" stroke-width="28" stroke-dasharray="0 439.82" stroke-dashoffset="0"   transform="rotate(-90 100 100)" data-pct="10" data-label="Development"/>
+            <circle class="donut-segment" id="seg-team" cx="100" cy="100" r="70" fill="none" stroke="#6b6f7c" stroke-width="28" stroke-dasharray="0 439.82" stroke-dashoffset="0"   transform="rotate(-90 100 100)" data-pct="5"  data-label="Team"/>
+          </svg>
+          <div class="donut-center">
+            <div class="donut-center-val" id="donut-val">1B</div>
+            <div class="donut-center-label" id="donut-lbl">Total Supply</div>
+          </div>
+        </div>
+        <div class="donut-legend">
+          <div class="legend-item"><div class="legend-dot" style="background:#D4AF37"></div>Liquidity 50%</div>
+          <div class="legend-item"><div class="legend-dot" style="background:#F7D774"></div>Community 20%</div>
+          <div class="legend-item"><div class="legend-dot" style="background:#C1121F"></div>Marketing 15%</div>
+          <div class="legend-item"><div class="legend-dot" style="background:#B8BCC8"></div>Dev 10%</div>
+          <div class="legend-item"><div class="legend-dot" style="background:#6b6f7c"></div>Team 5%</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTRACT -->
+<section id="contract" aria-label="Contract Address">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">Contract Address</div>
+      <h2 class="section-title">$SAVAGE Token CA</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="ca-box reveal">
+      <div class="ca-label">Solana Contract Address</div>
+      <div class="ca-row">
+        <div class="ca-address" id="ca-text">TwZPPLomymGXXR2z9hERFxA6BfPH16jVyZKQ4DQmoon</div>
+        <button class="ca-copy" id="copy-btn" onclick="copyCA()">Copy CA</button>
+      </div>
+      <div class="ca-networks">
+        <span class="ca-badge">⚡ Solana Network</span>
+        <span class="ca-badge">🟢 Verified</span>
+        <span class="ca-badge">🔒 LP Locked</span>
+        <span class="ca-badge">0% Tax</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIVE CHART -->
+<section id="chart" aria-label="Live Price Chart">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">Live Price</div>
+      <h2 class="section-title">Real-Time Chart</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="chart-wrapper reveal">
+      <div class="chart-header">
+        <div class="chart-dot"></div>
+        <span class="chart-title-text">$SAVAGE / SOL — DexScreener Live Feed</span>
+        <span class="chart-badge">● LIVE</span>
+      </div>
+      <iframe id="dexframe"
+        src="https://dexscreener.com/solana/55oPpfhPXKUERE1fbvYUZVWr5wNsy2MzkHDLGMYfcPPt?embed=1&theme=dark&trades=1&info=1"
+        title="$SAVAGE Live Chart on DexScreener" allow="clipboard-write" loading="lazy">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- COMMUNITY -->
+<section id="community" aria-label="Community">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">Join The Army</div>
+      <h2 class="section-title">Stay Savage 🔥</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="community-grid">
+      <a href="https://x.com/Savagecoin93823" target="_blank" rel="noopener" class="social-card x reveal" style="transition-delay:.05s" aria-label="Follow on X">
+        <div class="social-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#fff" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.253 5.622L18.244 2.25Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/></svg>
+        </div>
+        <div class="social-name">Twitter / X</div>
+        <div class="social-handle">@Savagecoin93823</div>
+      </a>
+      <a href="https://t.me/savagecoinn" target="_blank" rel="noopener" class="social-card tg reveal" style="transition-delay:.1s" aria-label="Join Telegram">
+        <div class="social-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#29b6f6" d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0Zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635Z"/></svg>
+        </div>
+        <div class="social-name">Telegram</div>
+        <div class="social-handle">t.me/savagecoinn</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo-wrap">
+    <img src="savage.png" alt="Savage Coin" class="footer-logo-img" onerror="this.style.display='none'" />
+    <span class="footer-logo-text">$SAVAGE</span>
+  </div>
+  <p class="footer-disc">$SAVAGE is a community meme token on Solana with no intrinsic value or expectation of financial return. This is not financial advice. Always DYOR before investing in any cryptocurrency.</p>
+  <p class="footer-copy">© 2026 Savage Coin. All rights reserved. Stay Savage 🔥</p>
+</footer>
+
+<!-- TICKER -->
+<div class="ticker-bar" aria-hidden="true"><div class="ticker-inner" id="ticker"></div></div>
+
+<!-- CHATBOT FAB -->
+<button id="chatbot-toggle" onclick="toggleChat()" aria-label="Open Savage Chatbot">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
+</button>
+
+<!-- CHATBOT WINDOW -->
+<div id="chatbot-window" role="dialog" aria-label="Savage Chatbot">
+  <div class="chat-header">
+    <img src="savage.png" alt="" class="chat-header-logo" onerror="this.style.display='none'" />
+    <div class="chat-header-info">
+      <div class="chat-header-name">SAVAGE CHATBOT 🔥</div>
+      <div class="chat-header-status"><span class="chat-status-dot"></span>Online · Ask anything</div>
+    </div>
+    <button class="chat-close" onclick="toggleChat()" aria-label="Close chat">✕</button>
+  </div>
+  <div class="chat-messages" id="chat-messages"></div>
+  <div class="chat-quick-btns" id="quick-btns"></div>
+  <div class="chat-input-row">
+    <input id="chat-input" type="text" placeholder="Ask about $SAVAGE..." maxlength="200" autocomplete="off" />
+    <button id="chat-send" onclick="sendMessage()" aria-label="Send">
+      <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+    </button>
+  </div>
+</div>
+
+<script>
+// PARTICLES
+(function(){
+  const c=document.getElementById('particles');
+  const clrs=['#D4AF37','#F7D774','#C1121F','#888','#B8BCC8'];
+  for(let i=0;i<60;i++){
+    const p=document.createElement('div'); p.className='particle';
+    const s=Math.random()*3+1;
+    p.style.cssText=`left:${Math.random()*100}%;width:${s}px;height:${s}px;background:${clrs[Math.floor(Math.random()*clrs.length)]};animation-duration:${Math.random()*18+10}s;animation-delay:${Math.random()*22}s;`;
+    c.appendChild(p);
+  }
+})();
+
+// TICKER
+(function(){
+  const items=['$SAVAGE 🔥 JOIN THE MOVEMENT','TOTAL SUPPLY: 1,000,000,000','50% LIQUIDITY LOCKED','BUILT ON SOLANA ⚡','JOIN TELEGRAM ✈️','BUY ON JUPITER 🚀','STAY SAVAGE 👑','COMMUNITY REWARDS: 200M','0% TAX · FAIR LAUNCH'];
+  const d=[...items,...items];
+  document.getElementById('ticker').innerHTML=d.map(t=>`<span class="ticker-item">${t}<span class="ticker-sep"> | </span></span>`).join('');
+})();
+
+// NAV SCROLL
+window.addEventListener('scroll',()=>{
+  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>60);
+},{ passive:true });
+
+// HAMBURGER
+function toggleMenu(){
+  document.getElementById('hamburger').classList.toggle('open');
+  document.getElementById('mobile-menu').classList.toggle('open');
+}
+function closeMenu(){
+  document.getElementById('hamburger').classList.remove('open');
+  document.getElementById('mobile-menu').classList.remove('open');
+}
+
+// COPY CA
+function copyCA(){
+  navigator.clipboard.writeText('TwZPPLomymGXXR2z9hERFxA6BfPH16jVyZKQ4DQmoon').then(()=>{
+    const btn=document.getElementById('copy-btn');
+    btn.textContent='✓ Copied!'; btn.classList.add('copied');
+    setTimeout(()=>{ btn.textContent='Copy CA'; btn.classList.remove('copied'); },2600);
+  });
+}
+
+// SCROLL REVEAL
+const revObs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('visible'); });
+},{threshold:0.1});
+document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el=>revObs.observe(el));
+
+// DONUT ANIMATION
+const C=439.82;
+const segs=[
+  {id:'seg-lp',  pct:50},
+  {id:'seg-com', pct:20},
+  {id:'seg-mkt', pct:15},
+  {id:'seg-dev', pct:10},
+  {id:'seg-team',pct:5},
+];
+let cumPct=0;
+segs.forEach(s=>{ s.arc=(s.pct/100)*C; s.cumStart=cumPct; cumPct+=s.pct; });
+
+let donutDone=false;
+const donutObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting&&!donutDone){ donutDone=true; animateDonut(); }});
+},{threshold:0.25});
+const dEl=document.getElementById('donut-chart');
+if(dEl) donutObs.observe(dEl);
+
+function animateDonut(){
+  const dur=1300, start=performance.now();
+  function step(now){
+    const p=Math.min((now-start)/dur,1);
+    const ease=1-Math.pow(1-p,3);
+    segs.forEach(s=>{
+      const arc=s.arc*ease;
+      const gap=C-arc;
+      const offset=-(s.cumStart/100)*C*ease;
+      const el=document.getElementById(s.id);
+      el.setAttribute('stroke-dasharray',`${arc} ${gap}`);
+      el.setAttribute('stroke-dashoffset',`${offset}`);
+    });
+    if(p<1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+
+document.querySelectorAll('.donut-segment').forEach(seg=>{
+  seg.addEventListener('mouseenter',()=>{
+    document.getElementById('donut-val').textContent=seg.dataset.pct+'%';
+    document.getElementById('donut-lbl').textContent=seg.dataset.label;
+  });
+  seg.addEventListener('mouseleave',()=>{
+    document.getElementById('donut-val').textContent='1B';
+    document.getElementById('donut-lbl').textContent='Total Supply';
+  });
+});
+
+// CHATBOT
+let chatOpen=false;
+const quickQs=['What is $SAVAGE?','How to buy?','Tokenomics?','Contract address?','Roadmap?','Community links?','Tax info?'];
+
+const KB={
+  greet:   ['hello','hi','hey','sup','yo','gm','good morning','wassup'],
+  what:    ['what is','tell me about','explain','about savage','who is','what are'],
+  buy:     ['how to buy','buy','purchase','swap','get savage','jupiter','where to buy','how do i'],
+  ca:      ['contract','address','ca ','token address','ca?'],
+  toko:    ['tokenomics','supply','allocation','distribution','liquidity','lp','how many'],
+  road:    ['roadmap','phase','plan','future','next','when'],
+  links:   ['community','social','telegram','twitter','x.com','links','channel','join'],
+  tax:     ['tax','fee','buy tax','sell tax','fees'],
+  team:    ['team','founders','devs','developers','who made'],
+  network: ['solana','chain','blockchain','network','sol'],
+};
+
+const ANS={
+  greet:`🔥 Wassup, Savage! I'm your SAVAGE CHATBOT — your on-chain guide to the $SAVAGE movement.\n\nWhat do you want to know? Choose below or just type!`,
+  what:`$SAVAGE (Savage Coin) is a community-driven meme token on Solana. 🚀\n\nMore than a coin — it's a movement built for bold movers who believe in community, strength, and momentum together.\n\n📊 Total Supply: 1,000,000,000 $SAVAGE`,
+  buy:`You can buy $SAVAGE on Jupiter Aggregator:\n🔗 jup.ag/tokens/TwZPPLomymGXXR2z9hERFxA6BfPH16jVyZKQ4DQmoon\n\nSteps:\n1. Get a Solana wallet (Phantom, Backpack)\n2. Buy SOL and send to your wallet\n3. Visit the Jupiter link above\n4. Swap SOL → $SAVAGE 💥\n\nStay Savage! 🔥`,
+  ca:`📋 Contract Address (CA):\nTwZPPLomymGXXR2z9hERFxA6BfPH16jVyZKQ4DQmoon\n\n⚡ Network: Solana\n📊 Chart: DexScreener\n🟢 Verified · 0% Tax · LP Locked`,
+  toko:`📊 $SAVAGE Tokenomics (1,000,000,000 total):\n\n🔒 Liquidity Pool — 50% (500M)\n🌍 Community Rewards — 20% (200M)\n📈 Marketing — 15% (150M)\n🛠️ Development — 10% (100M)\n👑 Team — 5% (50M, vested)\n\nBalanced for growth, trust & long-term momentum! 💪`,
+  road:`🗺️ $SAVAGE Roadmap:\n\nPhase 1 ✅ — Token launch, LP, DexScreener, social channels\nPhase 2 — CoinGecko/CMC listing, influencers, airdrops\nPhase 3 — CEX listings, NFT collection, Savage DAO\nPhase 4 — DeFi integrations, Tier-1 CEX, ecosystem v2 🚀`,
+  links:`🔗 $SAVAGE Community:\n\n🐦 Twitter/X: x.com/Savagecoin93823\n✈️ Telegram: t.me/savagecoinn\n📊 Chart: dexscreener.com/solana/55oPpfhPXKUERE1fbvYUZVWr5wNsy2MzkHDLGMYfcPPt\n🟢 Buy: jup.ag via the Buy button above!`,
+  tax:`✅ $SAVAGE has 0% buy tax and 0% sell tax.\n\nNo hidden fees. No tricks. What you swap is what you get. Clean, fair, and Savage. 💯`,
+  team:`👑 The $SAVAGE team holds only 5% of supply (50M tokens), vested over time.\n\nThis ensures long-term commitment without dumping on holders. The movement is community-first — always. 💪`,
+  network:`$SAVAGE runs on the Solana blockchain ⚡\n\nFast, cheap, and powerful. Transactions cost fractions of a cent — perfect for a fast-moving community token. No gas price nightmares!`,
+  fallback:`🤔 I don't have that specific answer, but try asking about:\n• Buying $SAVAGE\n• Tokenomics\n• Roadmap\n• Contract address\n• Community links\n\nOr join Telegram for more: t.me/savagecoinn 🔥`,
+};
+
+function matchIntent(msg){
+  const m=msg.toLowerCase();
+  for(const [intent,triggers] of Object.entries(KB)){
+    if(triggers.some(t=>m.includes(t))) return intent;
+  }
+  return 'fallback';
+}
+
+function getTime(){
+  return new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});
+}
+
+function appendMsg(text,role){
+  const msgs=document.getElementById('chat-messages');
+  const div=document.createElement('div'); div.className=`msg ${role}`;
+  div.innerHTML=`<div class="msg-bubble">${text.replace(/\n/g,'<br/>')}</div><span class="msg-time">${getTime()}</span>`;
+  msgs.appendChild(div);
+  msgs.scrollTop=msgs.scrollHeight;
+}
+
+function renderQuickBtns(){
+  document.getElementById('quick-btns').innerHTML=quickQs.map(q=>`<button class="quick-btn" onclick="askQuick('${q}')">${q}</button>`).join('');
+}
+
+function askQuick(q){
+  appendMsg(q,'user');
+  document.getElementById('quick-btns').innerHTML='';
+  setTimeout(()=>{ appendMsg(ANS[matchIntent(q)]||ANS.fallback,'bot'); renderQuickBtns(); },500);
+}
+
+function sendMessage(){
+  const input=document.getElementById('chat-input');
+  const msg=input.value.trim(); if(!msg) return;
+  appendMsg(msg,'user'); input.value='';
+  document.getElementById('quick-btns').innerHTML='';
+  setTimeout(()=>{ appendMsg(ANS[matchIntent(msg)]||ANS.fallback,'bot'); renderQuickBtns(); },600);
+}
+
+document.getElementById('chat-input').addEventListener('keydown',e=>{ if(e.key==='Enter') sendMessage(); });
+
+function toggleChat(){
+  chatOpen=!chatOpen;
+  const win=document.getElementById('chatbot-window');
+  if(chatOpen){
+    win.style.display='flex'; win.classList.add('animating');
+    win.classList.add('open');
+    setTimeout(()=>win.classList.remove('animating'),400);
+    if(!document.getElementById('chat-messages').children.length){
+      setTimeout(()=>{ appendMsg(ANS.greet,'bot'); renderQuickBtns(); },250);
+    }
+  } else {
+    win.classList.remove('open'); win.style.display='none';
+  }
+}
+</script>
+</body>
+</html>
+
